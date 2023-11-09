@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 
 env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: "ghcr.io/amikos-tech/chromadb-chart/chroma"
+  REGISTRY: docker.io
+  IMAGE_NAME: "docker.io/abirdcfly/chroma"
   LATEST_VERSION: "0.4.14"
 
 jobs:
@@ -25,9 +25,8 @@ jobs:
       - name: Log in to the Container registry
         uses: docker/login-action@v2.1.0
         with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: abirdcfly
+          password: ${{ secrets.DOCKER_TOKEN }}
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v4
